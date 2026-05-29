@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Desatadora de Nós</title>
+
+  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+  <script>
+    window.googlePixelId = "6a08f04f5b5c4ce4887ab26b";
+
+    (() => {
+      const pixel = document.createElement("script");
+
+      pixel.async = true;
+      pixel.defer = true;
+      pixel.src = "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js";
+
+      document.head.appendChild(pixel);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-1: #2d1800;
+      --bg-2: #8b5600;
+      --bg-3: #f1b400;
+
+      --brown-dark: #4e3200;
+      --brown-medium: #7b5300;
+
+      --soft-white: #fffdf6;
+      --text-dark: #1c1208;
+
+      --gold-light: #f8df9a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+
+      font-family: 'Poppins', sans-serif;
+
+      background:
+        radial-gradient(circle at top,
+          rgba(255, 215, 90, 0.15) 0%,
+          transparent 35%),
+
+        linear-gradient(180deg,
+          var(--bg-1) 0%,
+          var(--bg-2) 45%,
+          var(--bg-3) 100%);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      padding: 22px 16px 40px;
+
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .card {
+      width: 100%;
+
+      background: #ffffff;
+
+      border-radius: 24px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.42),
+        0 0 50px rgba(255, 190, 30, 0.12);
+    }
+
+    .hero-wrapper {
+      background: #ffffff;
+      padding: 14px 14px 0;
+      text-align: center;
+    }
+
+    .hero-image {
+      width: 64%;
+      max-width: 230px;
+      border-radius: 14px;
+      display: inline-block;
+    }
+
+    .banner {
+      background:
+        linear-gradient(90deg,
+          #442800 0%,
+          #8f5c00 50%,
+          #442800 100%);
+
+      color: var(--gold-light);
+
+      text-align: center;
+
+      padding: 11px 16px;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .content {
+      background: var(--soft-white);
+
+      padding: 24px 22px 28px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 14px;
+    }
+
+    .headline {
+      font-family: 'Playfair Display', serif;
+
+      font-size: clamp(24px, 6vw, 31px);
+
+      line-height: 1.15;
+
+      font-weight: 900;
+
+      text-align: center;
+
+      color: var(--text-dark);
+    }
+
+    .headline em {
+      font-style: italic;
+      color: var(--brown-medium);
+    }
+
+    .subheadline {
+      text-transform: uppercase;
+
+      letter-spacing: 2px;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      color: var(--brown-medium);
+
+      text-align: center;
+    }
+
+    .button {
+      width: 100%;
+
+      min-height: 58px;
+
+      border: none;
+
+      border-radius: 999px;
+
+      background:
+        linear-gradient(135deg,
+          #e7aa00 0%,
+          #ffd22f 50%,
+          #cb8f00 100%);
+
+      color: var(--text-dark);
+
+      text-decoration: none;
+
+      font-size: 18px;
+      font-weight: 800;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 5px 18px rgba(180, 120, 0, 0.5),
+        0 0 25px rgba(255, 204, 0, 0.35);
+
+      animation: pulse 2.5s infinite ease-in-out;
+
+      transition:
+        transform .15s ease,
+        box-shadow .15s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 28px rgba(180, 120, 0, 0.7),
+        0 0 35px rgba(255, 204, 0, 0.45);
+    }
+
+    .button:active {
+      transform: scale(.99);
+    }
+
+    .access {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      font-size: 13px;
+
+      color: #777777;
+    }
+
+    footer {
+      margin-top: 24px;
+
+      text-align: center;
+
+      font-size: 11px;
+
+      line-height: 2;
+
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    footer a {
+      color: #ffffff;
+      font-weight: 600;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+
+      background: rgba(0, 0, 0, 0.75);
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      padding: 18px;
+
+      z-index: 9999;
+    }
+
+    .popup-overlay.active {
+      display: flex;
+    }
+
+    .popup-box {
+      width: 100%;
+      max-width: 720px;
+      max-height: 88vh;
+
+      overflow-y: auto;
+
+      border-radius: 24px;
+
+      border: 2px solid rgba(255, 200, 40, 0.9);
+
+      background: var(--soft-white);
+
+      box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.5),
+        0 0 35px rgba(255, 190, 30, 0.22);
+
+      animation: popupShow .25s ease;
+    }
+
+    .popup-header {
+      background:
+        linear-gradient(90deg,
+          #3f2400 0%,
+          #8a5600 50%,
+          #3f2400 100%);
+
+      color: var(--gold-light);
+
+      padding: 18px 22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 14px;
+    }
+
+    .popup-header h2 {
+      font-family: 'Playfair Display', serif;
+
+      font-size: 24px;
+
+      line-height: 1.2;
+    }
+
+    .close-btn {
+      width: 38px;
+      height: 38px;
+
+      border: none;
+
+      border-radius: 50%;
+
+      background: rgba(255, 255, 255, 0.12);
+
+      color: #ffffff;
+
+      font-size: 24px;
+
+      cursor: pointer;
+    }
+
+    .popup-content {
+      padding: 24px;
+
+      color: #2b1b08;
+
+      line-height: 1.8;
+
+      font-size: 14px;
+    }
+
+    .popup-content h3 {
+      margin: 18px 0 8px;
+
+      color: var(--brown-medium);
+
+      font-size: 17px;
+    }
+
+    .popup-content p {
+      margin-bottom: 12px;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow:
+          0 5px 18px rgba(180, 120, 0, 0.45),
+          0 0 25px rgba(255, 204, 0, 0.28);
+      }
+
+      50% {
+        box-shadow:
+          0 5px 30px rgba(180, 120, 0, 0.8),
+          0 0 38px rgba(255, 204, 0, 0.5);
+      }
+    }
+
+    @keyframes popupShow {
+      from {
+        opacity: 0;
+        transform: translateY(15px) scale(.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @media(max-width:480px) {
+
+      body {
+        padding: 12px 10px 28px;
+      }
+
+      .card {
+        border-radius: 20px;
+      }
+
+      .hero-image {
+        width: 52%;
+        max-width: 165px;
+      }
+
+      .banner {
+        font-size: 11px;
+        padding: 8px 14px;
+      }
+
+      .content {
+        padding: 18px 18px 24px;
+      }
+
+      .headline {
+        font-size: 22px;
+      }
+
+      .subheadline {
+        font-size: 10px;
+      }
+
+      .button {
+        font-size: 16px;
+        min-height: 54px;
+      }
+
+      .popup-header h2 {
+        font-size: 21px;
+      }
+
+      .popup-content {
+        padding: 20px;
+        font-size: 13.5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <main class="card">
+
+      <div class="hero-wrapper">
+
+        <img class="hero-image" src="./images/nossa-senhora-desatadora.jpg" alt="Desatadora de Nós" onerror="this.style.display='none'">
+
+      </div>
+
+      <div class="banner">
+        ✨ DESATADORA DE NÓS ✨
+      </div>
+
+      <section class="content">
+
+        <h1 class="headline">
+          Escute essa <em>oração<br>de 7 palavras</em>
+        </h1>
+
+        <p class="subheadline">
+          Clique abaixo e Ouça agora
+        </p>
+
+        <a href="../vsl-2/" class="button" id="mainButton">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+
+            <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+
+          </svg>
+
+          Ouvir Agora
+
+        </a>
+
+        <div class="access">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#8b6000" viewBox="0 0 16 16">
+
+            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+
+          </svg>
+
+          Acesso imediato e gratuito
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <footer>
+
+      © 2026 Desatadora de Nós. Todos os direitos reservados.
+      <br>
+
+      <a onclick="openPopup('terms')">Termos de Uso</a>
+      ·
+      <a onclick="openPopup('privacy')">Política de Privacidade</a>
+
+    </footer>
+
+  </div>
+
+  <div class="popup-overlay" id="popupOverlay">
+
+    <div class="popup-box">
+
+      <div class="popup-header">
+
+        <h2 id="popupTitle">Termos de Uso</h2>
+
+        <button class="close-btn" onclick="closePopup()">×</button>
+
+      </div>
+
+      <div class="popup-content" id="popupContent"></div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    (() => {
+
+      const params = window.location.search;
+
+      if (!params) return;
+
+      const button = document.getElementById("mainButton");
+
+      const baseUrl = button.getAttribute("href");
+
+      const separator = baseUrl.includes("?") ? "&" : "?";
+
+      button.href = baseUrl + separator + params.replace("?", "");
+
+    })();
+
+    const popupData = {
+
+      terms: {
+
+        title: "Termos de Uso",
+
+        content: `
+          <p>Ao acessar esta página, você concorda com os presentes Termos de Uso.</p>
+
+          <h3>1. Finalidade do Conteúdo</h3>
+
+          <p>O conteúdo apresentado possui finalidade informativa, espiritual e devocional.</p>
+
+          <h3>2. Uso da Página</h3>
+
+          <p>Você se compromete a utilizar esta página de forma adequada.</p>
+
+          <h3>3. Responsabilidade</h3>
+
+          <p>Esta página não substitui orientação profissional.</p>
+        `
+      },
+
+      privacy: {
+
+        title: "Política de Privacidade",
+
+        content: `
+          <p>A sua privacidade é importante para nós.</p>
+
+          <h3>1. Coleta de Informações</h3>
+
+          <p>Podemos coletar dados básicos de navegação para melhorar a experiência.</p>
+
+          <h3>2. Cookies</h3>
+
+          <p>Cookies podem ser utilizados para análise de desempenho e campanhas.</p>
+
+          <h3>3. Segurança</h3>
+
+          <p>Adotamos medidas razoáveis para proteger as informações.</p>
+        `
+      }
+    };
+
+    const overlay = document.getElementById("popupOverlay");
+
+    const popupTitle = document.getElementById("popupTitle");
+
+    const popupContent = document.getElementById("popupContent");
+
+    function openPopup(type) {
+
+      popupTitle.innerHTML = popupData[type].title;
+
+      popupContent.innerHTML = popupData[type].content;
+
+      overlay.classList.add("active");
+
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePopup() {
+
+      overlay.classList.remove("active");
+
+      document.body.style.overflow = "";
+    }
+
+    overlay.addEventListener("click", function (event) {
+
+      if (event.target === overlay) {
+
+        closePopup();
+
+      }
+
+    });
+
+    document.addEventListener("keydown", function (event) {
+
+      if (event.key === "Escape") {
+
+        closePopup();
+
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>
